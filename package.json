@@ -1,0 +1,30 @@
+{
+  "name": "Toxygen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muslik/Toxygen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muslik/Toxygen/issues"
+  },
+  "homepage": "https://github.com/Muslik/Toxygen#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+	"browser-sync": "^2.26.5",
+	"gulp-concat": "^2.6.1",
+    "gulp-uglifycss": "^1.1.0",
+    "gulp": "^4.0.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
