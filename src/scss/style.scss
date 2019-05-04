@@ -1,12 +1,33 @@
-@import "media.scss";
-@import "normalize.scss";
+$base-font-size: 16px;
+
+@import "media";
+@import "normalize";
+@import "mixins";
 
 body {
-	font-family: 'Helvetica';
-	font-size: 16px;
+	font-family: 'Helvetica', sans-serif;
+	font-size: $base-font-size;
 }
 
 .container {
 	width: auto;
 	margin: 0 auto;
+}
+
+html,body {
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.content {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex: 0 0 auto;
 }
