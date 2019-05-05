@@ -15,7 +15,7 @@
 			<div class="container">
 			  <ul class="primary-menu__list">
 				<li class="primary-menu__item">
-				  <a class="primary-menu__link" href="index.html">HOME</a>
+				  <a class="primary-menu__link" href="index.php">HOME</a>
 				</li>
 				<li class="primary-menu__item">
 				  <a class="primary-menu__link" href="animals.php">PRODUCTS</a>
@@ -34,15 +34,22 @@
 				</li>
 				<li id="dropdown" class="dropdown ddmenu left-menu__item">
 				  <i class="fas fa-user"></i>
-				  <ul id="dropdown-list" class="hide">
-				  	<li><a href="profile.html">My Profile</a></li>
-				  	<li><a href="admin.html">Admin Panel</a></li>
-				  	<li><a href="#">Log Out</a></li>
-				  </ul>
-				  <!-- <ul id="dropdown-list" class="hide"> -->
-				  <!-- 	<li><a href="auth.html">Sign In</a></li> -->
-				  <!-- 	<li><a href="register.html">Register</a></li> -->
-				  <!-- </ul> -->
+					<?php
+                    session_start();
+                    if (isset($_SESSION['logged']))
+                        print
+                            '<ul id="dropdown-list" class="hide">
+				  <li><a href="profile.html">My Profile</a></li>
+				  <li><a href="admin.html">Admin Panel</a></li>
+				  <li><a href="#">Log Out</a></li>
+			  </ul>';
+				else
+				print
+				'<ul id="dropdown-list" class="hide">
+				<li><a href="auth.html">Sign In</a></li>
+				<li><a href="register.html">Register</a></li>
+			</ul>';
+				?>
 				</li>
 			  </ul>
 			</div>
