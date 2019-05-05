@@ -1,5 +1,5 @@
 <?php
-include("auth.php");
+include("auth_sql.php");
 include("sql_manage.php");
 include("sql_misc.php");
 
