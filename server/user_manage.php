@@ -3,14 +3,6 @@ include("auth.php");
 include("sql_manage.php");
 include("sql_misc.php");
 
-function check_field($key_value, $table_name, $field_name, $field_value)
-{
-	$con = connect_sql();
-	$query = "SELECT " . $key_value . " from " . $table_name . " where " . $field_name . " = " . "'" . $field_value . "'" . ";";
-//	print "\nCHECK query = " . $query . "\n";
-	$res = mysqli_query($con, $query);
-	return mysqli_num_rows($res);
-}
 
 function add_user($username, $password, $isAdmin, $phone, $email, $address, $birthday)
 {
@@ -58,18 +50,30 @@ function update_user($username, $values)
 		print_r($values);
 		print_r(array_keys($values));
 		$query = "update users set ";
-		foreach ($values as $key=>$value) {
+		foreach ($values as $key => $value) {
 			$query = $query . $key . " = " . wrap_single_quotes_comma($value);
 		}
-		rtrim($query, ", ");
-		$query = $query . "WHERE username = ".wrap_single_quotes($username)." ;";
+		$query = rtrim($query, ", ");
+		$query = $query . "WHERE username = " . wrap_single_quotes($username) . " ;";
 		$res = mysqli_query(connect_sql(), $query);
 		return $res;
 	}
 }
 
+function read_user_props_by_id($user_id)
+{
+	$user_id = intval($user_id);
+	if (!is_numeric($user_id))
+		return false;
+	$query = "SELECT * from users where user_id = " . wrap_single_quotes($user_id) . ";";
+	$res = mysqli_query(connect_sql(), $query);
+	$res = mysqli_fetch_array($res);
+	return $res;
+}
+
 //
-print add_user("user", "pass", "1", " + 1488", "pidor@sa . s", "nope", "228") . "\n";
+//print add_user("user", "pass", "1", " + 1488", "pidor@sa . s", "nope", "228") . "\n";
 //print remove_user("user");
 $array = array("phone" => "144447");
-print update_user("user", $array);
+//print update_user("user", $array);
+//print_r( read_user_props_by_id(5));
