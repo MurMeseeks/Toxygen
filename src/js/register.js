@@ -24,17 +24,17 @@ pass1.addEventListener("change", checker);
 function validateForm (form)
 {
     // validation fails if the input is blank
-    if(form.login.value == "") {
+    if(form.username.value == "") {
 		alert("Error: Input is empty!");
-		form.login.focus();
+		form.username.focus();
 		return false;
     }
     // regular expression to match only alphanumeric characters and spaces
     var re = /^[\w ]+$/;
     // validation fails if the input doesn't match our regular expression
-    if(!re.test(form.login.value)) {
+    if(!re.test(form.username.value)) {
 		alert("Error: Input contains invalid characters!");
-		form.login.focus();
+		form.username.focus();
 		return false;
     }
 	if(form.password.value != form.passwordAnother.value) {
