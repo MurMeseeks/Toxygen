@@ -50,19 +50,17 @@ function generic_update($table_name, $values)
 	$updates_str = "";
 	$flag = 1;
 	foreach ($values as $key => $value) {
-		if ($flag)
-		{
+		if ($flag) {
 			$key_value = $key;
 			$data_value = $value;
 			$flag = 0;
-		}
-		else
-			$inserted_str = $inserted_str."$key='$value', ";
+		} else
+			$inserted_str = $inserted_str . "$key='$value', ";
 	}
 	if (!check_field($key_value, $table_name, $key_value, strval($data_value)))
 		return (2);
 	$inserted_str = rtrim($inserted_str, ", ");
-	$query = $query.$inserted_str." WHERE ".$key_value."=".$data_value;
+	$query = $query . $inserted_str . " WHERE " . $key_value . "=" . $data_value;
 	$res = mysqli_query(connect_sql(), $query);
 	return $res;
 }
@@ -72,18 +70,19 @@ function generic_delete($table_name, $values)
 	$key_value = array_keys($values);
 	if (!check_field($key_value, $table_name, $key_value, strval($values[$key_value[0]])))
 		return (2);
-	$query = "DELETE FROM " . $table_name." WHERE ".$key_value[0]."=".$values[$key_value[0]];
-	print($query."\n");
+	$query = "DELETE FROM " . $table_name . " WHERE " . $key_value[0] . "=" . $values[$key_value[0]];
+	print($query . "\n");
 	$res = mysqli_query(connect_sql(), $query);
 	return $res;
 }
 
 function generic_read($table_name, $values)
 {
-	$select_str = "";
-	$query = "SELECT * FROM ".$table_name." WHERE ".$values;
+	$query = "SELECT * FROM " . $table_name . " WHERE " . $values . ";";
 	print($query);
 	$res = mysqli_query(connect_sql(), $query);
+	if (!$res)
+		return false;
 	$res = mysqli_fetch_array($res);
 	return $res;
 }
@@ -96,5 +95,3 @@ function generic_read($table_name, $values)
 
 #$val = array("product_id"=> 1, "description" => "2345678");
 #print "delete = ".generic_delete("products", $val)."\n";
-
-print_r(generic_read("products", "description='2345678'"));
