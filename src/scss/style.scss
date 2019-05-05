@@ -550,3 +550,35 @@ a {
   color: #e86f6f;
   background: #f4e6e6;
 }
+
+// АДМИНКА
+.admin {
+	&-users {
+		width: 100%;
+		&__input {
+			height: 30px;
+			width: 100%;
+          text-align: center;
+		}
+		td {
+          text-align: center;
+          width: 100px;
+		}
+	}
+	&-links {
+		height: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border: 1px solid black;
+		&__link {
+			text-align: center;
+			line-height: 60px;
+			background: red;
+			height: 100%;
+			width: 100%;
+			display: block;
+			color: #000;
+		}
+	}
+}

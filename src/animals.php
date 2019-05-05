@@ -45,8 +45,8 @@
 			  </ul>';
 				else
 				print
-				'<ul id="dropdown-list" class="hide">
-				<li><a href="auth.html">Sign In</a></li>
+                    '<ul id="dropdown-list" class="hide">
+				<li><a href="auth.php">Sign In</a></li>
 				<li><a href="register.html">Register</a></li>
 			</ul>';
 				?>

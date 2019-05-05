@@ -1,5 +1,5 @@
 <?php
-include("auth_sql.php");
+include_once("auth_sql.php");
 function wrap_single_quotes_comma($str)
 {
 	return "'" . $str . "', ";
@@ -79,11 +79,11 @@ function generic_delete($table_name, $values)
 function generic_read($table_name, $values)
 {
 	$query = "SELECT * FROM " . $table_name . " WHERE " . $values . ";";
-//	print($query);
+	print($query);
 	$res = mysqli_query(connect_sql(), $query);
 	if (!$res)
 		return false;
-	$res = mysqli_fetch_array($res);
+//	var_dump($res);
 	return $res;
 }
 
@@ -98,6 +98,7 @@ function generic_read($table_name, $values)
 
 #$val = array("product_id"=> 1, "description" => "2345678");
 #print "delete = ".generic_delete("products", $val)."\n";
+<<<<<<< HEAD
 
 /*
 $val = array("username" => "admin", "password" => hash("whirlpool", "admin"), "isAdmin" => 1, "phone"=> 89999999999, "email" => "what@are.you", "address" => "looking_at?", "birthday" => "01.01.0001");
@@ -146,3 +147,9 @@ print generic_insert("products", $val)."\n";
 $val = array("product_name" => "Squirrel", "price" => 590.00, "description" => "От инсайдеров слышали - белка летает. Сами не проверяли", "picture_link" => "https://cdn1.savepice.ru/uploads/2019/5/5/4a28fc270861a8e167e124e37204334a-full.jpg", "weight" => 150,  "color" => "#A52A2A", "width" => "120", "height" => "120", "quantity" => "55");
 print generic_insert("products", $val)."\n";
 */
+=======
+//$res = (generic_read("users", "user_id"));
+//var_dump($res[0]);
+//var_dump($res["user_id"]);
+//var_dump(generic_read("users", "user_id"));
+>>>>>>> d45ecc35b8267d9ee5019d1e4552552b80db16e6

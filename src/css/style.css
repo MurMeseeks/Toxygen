@@ -177,4 +177,7 @@ html,body{height:100%;overflow-x:hidden}.wrapper{display:-webkit-box;display:-ms
 .dropdown ul{position:absolute;padding:0;width:150px;top:100%;text-align:center;display:block;list-style:none;border:1px solid #e86f6f;font-size:1rem;background:#fff}
 .dropdown ul.hide{display:none}.dropdown ul li{height:50px;line-height:50px;border-left:4px solid transparent}
 .dropdown ul li:hover{border-left:4px solid red}.dropdown ul li{font-size:.9em}.dropdown ul li a{padding:0 10px;text-decoration:none;display:block;color:red}
-.dropdown ul li a:hover{color:#e86f6f;background:#f4e6e6}
+.dropdown ul li a:hover{color:#e86f6f;background:#f4e6e6}.admin-users{width:100%}
+.admin-users__input{height:30px;width:100%;text-align:center}.admin-users td{text-align:center;width:100px}
+.admin-links{height:60px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;border:1px solid black}
+.admin-links__link{text-align:center;line-height:60px;background:red;height:100%;width:100%;display:block;color:#000}
