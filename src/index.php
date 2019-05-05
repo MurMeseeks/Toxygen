@@ -35,15 +35,15 @@
                     if (isset($_SESSION['logged']))
                         print
                             '<ul id="dropdown-list" class="hide">
-                                <li><a href="profile.html">My Profile</a></li>
-                                <li><a href="admin.html">Admin Panel</a></li>
-                                <li><a href="#">Log Out</a></li>
+                                <li><a href="profile.php">My Profile</a></li>
+                                <li><a href="admin.php">Admin Panel</a></li>
+                                <li><a href="../server/logout.php">Log Out</a></li>
 				            </ul>';
                     else
                         print
                             '<ul id="dropdown-list" class="hide">
                                 <li><a href="auth.php">Sign In</a></li>
-                                <li><a href="register.html">Register</a></li>
+                                <li><a href="register.php">Register</a></li>
                               </ul>';
                     ?>
                 </li>
@@ -58,7 +58,7 @@
 			  <p class="section-main__description">
 				Sit amet, aliquam id diam maecenas ultricies mi eget mauris pharetra et ultrices neque ornare aenean euismod elementum nisi, quis!
 			  </p>
-			  <button class="section-main__button">Купить</button>
+			  <button class="section-main__button"><a href="animals.php">Купить</a></button>
 			</div>
 			<div class="section-main__right">
 			  <iframe class="section-main__video" src="https://www.youtube.com/embed/yK_qP68k_UE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -88,25 +88,25 @@
 				<div class="category__name">
 				  Птицы
 				</div>
-				<img class="category__img" alt="" src="./img/groups/birds.jpg"/>
+				<img class="category__img" alt="Птицы" src="https://cdn1.savepice.ru/uploads/2019/5/5/1fc9dd8fa576256c28d0dba9936997c5-full.jpg"/>
 			  </div>
 			  <div class="category">
 				<div class="category__name">
 				  Рыбы
 				</div>
-				<img class="category__img" alt="" src="./img/groups/fishes.jpg"/>
+				<img class="category__img" alt="Рыбы" src="https://cdn1.savepice.ru/uploads/2019/5/5/1519970fdf34cdac34e09bd44566aa68-full.jpg"/>
 			  </div>
 			  <div class="category">
 				<div class="category__name">
 				  Млекопитающие
 				</div>
-				<img class="category__img" alt="" src="./img/groups/mammals.jpg"/>
+				<img class="category__img" alt="Млекопитающие" src="https://cdn1.savepice.ru/uploads/2019/5/5/ee2c5bca56b8a17bc4b5370064d775d5-full.jpg"/>
 			  </div>
 			  <div class="category">
 				<div class="category__name">
 				  Грызуны
 				</div>
-				<img class="category__img" alt="" src="./img/groups/rodents.jpg"/>
+				<img class="category__img" alt="Грызуны" src="https://cdn1.savepice.ru/uploads/2019/5/5/eacfcf39311075ee20b8984acd8c2c69-full.jpg"/>
 			  </div>
 			</div>
 		  </div>

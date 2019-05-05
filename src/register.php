@@ -34,24 +34,24 @@
 		  <div class="container">
 			<div id ="regform" class="register-form auth-form">
 			  <h2 class="register-header auth-header">Регистрация</h2>
-			  <form onsubmit="return validateForm(this)" action="http://localhost:8080/server/registration.php" method="POST">
-				<input required placeholder="Login" class="sign sign-login" name="username" type="text" value="username"/>
+			  <form onsubmit="return validateForm(this)" action="../server/registration.php" method="POST">
+				<input required placeholder="Login" class="sign sign-login" name="username" type="text"/>
 				<div class="form-group">
-				  <input required placeholder="Password" id="pass1" class="sign sign-password" name="password" type="password" value="password"/>
+				  <input required placeholder="Password" id="pass1" class="sign sign-password" name="password" type="password"/>
 				  <p class="error-text">
 					Your passwords must match
 				  </p>
 				</div>
 				<div class="form-group">
-				  <input required placeholder="Repeat Password" id="pass2" class="sign sign-password" name="passwordAnother" type="password" value="password"/>
+				  <input required placeholder="Repeat Password" id="pass2" class="sign sign-password" name="passwordAnother" type="password"/>
 				  <p class="error-text">
 					Your passwords must match
 				  </p>
 				</div>
-				<input required placeholder="Phone" class="sign sign-phone" name="phone" type="text" value="89991234567"/>
-				<input required placeholder="Email" class="sign sign-email" name="email" type="email" value="qwe@rty.ru"/>
-				<input required placeholder="Address" class="sign sign-address" name="address" type="text" value="Home"/>
-				<input required placeholder="Birthday" class="sign sign-birthday" name="birthday" type="text" value="12 10 1993"/>
+				<input required placeholder="Phone" class="sign sign-phone" name="phone" type="text"/>
+				<input required placeholder="Email" class="sign sign-email" name="email" type="email"/>
+				<input required placeholder="Address" class="sign sign-address" name="address" type="text"/>
+				<input required placeholder="Birthday" class="sign sign-birthday" name="birthday" type="text"/>
 				<input class="sign sign-submit" name="submit" type="submit" value="Зарегистрироваться"/>
 			  </form>
 			</div>

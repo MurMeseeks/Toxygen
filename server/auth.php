@@ -7,7 +7,7 @@ if (isset($_SESSION['logged']) && $_SESSION['logged'] == $_POST['username']) {
 } elseif (isset($_POST['submit']) and $_POST['submit'] == 'Войти' and isset($_POST['password']) and isset($_POST['username'])) {
 	if ($res = generic_read("users", "username" . " = " . wrap_single_quotes($_POST["username"]))) {
 		if (hash("whirlpool", $_POST['password']) == $res['password']) {
-			header('Location: ../src/index.html');
+			header('Location: ../src/index.php');
 			$_SESSION['logged'] = $_POST['username'];
 			if (isset($res['isAdmin']) and $res['isAdmin'] = true)
 				$_SESSION['admin'] = true;

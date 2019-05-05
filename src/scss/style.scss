@@ -582,3 +582,11 @@ a {
 		}
 	}
 }
+.product-counter {
+	display: block;
+	text-align: center;
+	width: 100%;
+	&:focus {
+		outline: none;
+	}
+}

@@ -39,15 +39,15 @@
                     if (isset($_SESSION['logged']))
                         print
                             '<ul id="dropdown-list" class="hide">
-				  <li><a href="profile.html">My Profile</a></li>
-				  <li><a href="admin.html">Admin Panel</a></li>
-				  <li><a href="#">Log Out</a></li>
+				  <li><a href="profile.php">My Profile</a></li>
+				  <li><a href="admin.php">Admin Panel</a></li>
+				  <li><a href="../server/logout.php">Log Out</a></li>
 			  </ul>';
 				else
 				print
                     '<ul id="dropdown-list" class="hide">
 				<li><a href="auth.php">Sign In</a></li>
-				<li><a href="register.html">Register</a></li>
+				<li><a href="register.php">Register</a></li>
 			</ul>';
 				?>
 				</li>
@@ -77,7 +77,7 @@
 		</div>
 		<main class="main">
 		  <div class="container">
-			<div class="product" data-id="1" data-cost="39" data-amount="5">
+			<div class="product" data-name="Пожилой пупуга" data-id="1" data-cost="39" data-amount="5">
 			  <div class="make3D">
 				<div class="product-front">
 				  <div class="shadow"></div>
@@ -90,15 +90,9 @@
 					  <span class="product_name">Пожилой попугай</span>
 					  <p>Птица</p>
 					  <div class="product-options">
+                          <input class="product-counter" type="number" value="1" min="0">
 						<strong>SIZES</strong>
 						<span>XS, S, M, L, XL, XXL</span>
-						<strong>COLORS</strong>
-						<div class="colors">
-						  <div class="c-blue"><span></span></div>
-						  <div class="c-red"><span></span></div>
-						  <div class="c-white"><span></span></div>
-						  <div class="c-green"><span></span></div>
-						</div>
 					  </div>
 					</div>
 				  </div>
