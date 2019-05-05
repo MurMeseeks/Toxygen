@@ -34,8 +34,8 @@
 		  <div class="container">
 			<div id ="regform" class="register-form auth-form">
 			  <h2 class="register-header auth-header">Регистрация</h2>
-			  <form onsubmit="return validateForm(this)" action="auth.php" method="POST">
-				<input required placeholder="Login" class="sign sign-login" name="login" type="text" value=""/>
+			  <form onsubmit="return validateForm(this)" action="../server/register.php" method="POST">
+				<input required placeholder="Login" class="sign sign-login" name="username" type="text" value=""/>
 				<div class="form-group">
 				  <input required placeholder="Password" id="pass1" class="sign sign-password" name="password" type="password" value=""/>
 				  <p class="error-text">

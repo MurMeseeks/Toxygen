@@ -2,7 +2,7 @@ CREATE TABLE `users` (
                          `user_id` INT NOT NULL AUTO_INCREMENT,
                          `username` VARCHAR(30) NOT NULL UNIQUE,
                          `password` VARCHAR(512) NOT NULL,
-                         `isAdmin` BOOLEAN NOT NULL,
+                         `isAdmin` BOOLEAN NOT NULL DEFAULT '0',
                          `phone` VARCHAR(30),
                          `email` VARCHAR(30) NOT NULL,
                          `address` VARCHAR(30),
