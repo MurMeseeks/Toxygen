@@ -16,7 +16,7 @@
                 <div class="container">
                     <ul class="primary-menu__list">
                         <li class="primary-menu__item">
-                            <a class="primary-menu__link" href="index.html">HOME</a>
+                            <a class="primary-menu__link" href="index.php">HOME</a>
                         </li>
                         <li class="primary-menu__item">
                             <a class="primary-menu__link" href="animals.php">PRODUCTS</a>
@@ -31,20 +31,20 @@
                     <ul class="left-menu__list">
                         <li id="dropdown" class="dropdown ddmenu left-menu__item">
                             <i class="fas fa-user"></i>
-							<?php
-							session_start();
-							if (isset($_SESSION['logged']))
-								print
-									'<ul id="dropdown-list" class="hide">
-                        <li><a href="profile.html">My Profile</a></li>
-                        <li><a href="admin.html">Admin Panel</a></li>
-                        <li><a href="#">Log Out</a></li>
+                            <?php
+                    session_start();
+                    if (isset($_SESSION['logged']))
+                        print
+                            '<ul id="dropdown-list" class="hide">
+                        <li><a href="profile.php">My Profile</a></li>
+                        <li><a href="admin.php">Admin Panel</a></li>
+                        <li><a href="../server.php">Log Out</a></li>
                     </ul>';
-							else
-								print
-									'<ul id="dropdown-list" class="hide">
+                    else
+                    print
+                        '<ul id="dropdown-list" class="hide">
                     <li><a href="auth.php">Sign In</a></li>
-                    <li><a href="register.html">Register</a></li>
+                    <li><a href="register.php">Register</a></li>
                 </ul>';
 							?>
                         </li>
@@ -120,7 +120,6 @@
         </div>
     </footer>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/dropdown.js"></script>
 </body>
 </html>

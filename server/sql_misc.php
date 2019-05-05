@@ -99,6 +99,13 @@ function generic_read($table_name, $values)
 #$val = array("product_id"=> 1, "description" => "2345678");
 #print "delete = ".generic_delete("products", $val)."\n";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+//$res = (generic_read("users", "user_id"));
+//var_dump($res[0]);
+//var_dump($res["user_id"]);
+//var_dump(generic_read("users", "user_id"));
+>>>>>>> c5e676179900b5fd39bc2868205a6b8d69a1b6e6
 
 /*
 $val = array("username" => "admin", "password" => hash("whirlpool", "admin"), "isAdmin" => 1, "phone"=> 89999999999, "email" => "what@are.you", "address" => "looking_at?", "birthday" => "01.01.0001");
@@ -147,9 +154,12 @@ print generic_insert("products", $val)."\n";
 $val = array("product_name" => "Squirrel", "price" => 590.00, "description" => "От инсайдеров слышали - белка летает. Сами не проверяли", "picture_link" => "https://cdn1.savepice.ru/uploads/2019/5/5/4a28fc270861a8e167e124e37204334a-full.jpg", "weight" => 150,  "color" => "#A52A2A", "width" => "120", "height" => "120", "quantity" => "55");
 print generic_insert("products", $val)."\n";
 */
+<<<<<<< HEAD
 =======
 //$res = (generic_read("users", "user_id"));
 //var_dump($res[0]);
 //var_dump($res["user_id"]);
 //var_dump(generic_read("users", "user_id"));
 >>>>>>> d45ecc35b8267d9ee5019d1e4552552b80db16e6
+=======
+>>>>>>> c5e676179900b5fd39bc2868205a6b8d69a1b6e6

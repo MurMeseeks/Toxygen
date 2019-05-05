@@ -30,10 +30,6 @@ function setAttributes(el, attrs) {
 	}
 }
 
-function fucked(elem) {
-	console.log(elem);
-}
-
 function increment(elem) {
 	let id = elem.dataset.id;
 	let cart = JSON.parse(window.localStorage.getItem("cart"));
@@ -104,14 +100,17 @@ function updateBasket() {
 			let total = row.insertCell(3);
 			let inputName = document.createElement("input");
 			let inputCost = document.createElement("input");
+			let inputId = document.createElement("input");
 			let inputCount = document.createElement("input");
 			let inputTotal = document.createElement("input");
 			let buttonDown = document.createElement("button");
 			let buttonUp = document.createElement("button");
 			// ИМЯ INPUT
 			setAttributes(name, {"class": "td-name"})
-			setAttributes(inputName, {"readonly": null, "class": "b-input input-name", "name": "animal-name", "type":"text", "value":cart[i].id});
+			setAttributes(inputId, {"hidden": true, "value": cart[i].id})
+			setAttributes(inputName, {"readonly": null, "class": "b-input input-name", "name": "animal-name", "type":"text", "value":cart[i].name});
 			name.appendChild(inputName);
+			name.appendChild(inputId);
 			// СТОИМОСТЬ INPUT
 			setAttributes(inputCost, {"readonly": null, "class": "b-input input-cost", "name": "animal-cost", "type":"text", "value":cart[i].cost});
 			cost.appendChild(inputCost);
@@ -138,14 +137,16 @@ function updateBasket() {
 	}
 }
 
-function addToLocalStorage(id, count, cost) {
+function addToLocalStorage(name, id, count, cost) {
 	if (window.localStorage.getItem("cart") === null) {
 		console.log("ADDING")
 		let cart = [];
 		let good = {
 			"id": id,
+			"name": name,
 			"count": count,
-			"cost": cost
+			"cost": cost,
+			"total": cost * count
 		}
 		cart.push(good);
 		window.localStorage.setItem("cart", JSON.stringify(cart));
@@ -155,15 +156,16 @@ function addToLocalStorage(id, count, cost) {
 for (let i = 0; i < addToCart.length; i++) {
 	addToCart[i].addEventListener("click", function() {
 		let amount = addToCart[i].parentNode.parentNode.parentNode.dataset.amount; // Получаем количество оставшихся товаров
+		let name = addToCart[i].parentNode.parentNode.parentNode.dataset.name; // Получаем id товара
 		let id = addToCart[i].parentNode.parentNode.parentNode.dataset.id; // Получаем id товара
 		let cost = addToCart[i].parentNode.parentNode.parentNode.dataset.cost; // Получаем стоимость товара
 		let count = 1; // Получаем количество товара
 		let total = cost * count; // Получаем предварительную итоговую стоимость
-
 		// Если localstorage (КОРЗИНА) пустая, создаем
 		if (window.localStorage.getItem("cart") === null && amount > 0) {
 			let cart = [];
 			let good = {
+				"name": name,
 				"id": id,
 				"count": 1,
 				"cost": cost,
@@ -184,7 +186,7 @@ for (let i = 0; i < addToCart.length; i++) {
 				if (cart[i].id === id) { // Если элемент есть
 					if (cart[i].amount > 0) { // Если есть товар на складе
 						count = Number(cart[i].count) + count; // Увеличиваем количество товара
-						total = (Number(cart[i].cost) * count) + Number(cart[i].total); // Увеличиваем итоговую стоимость товара
+						total = (Number(cart[i].cost) * count); // Увеличиваем итоговую стоимость товара
 						amount = cart[i].amount
 						cart.splice(i,1); // Удаляем найденный элемент
 					}
@@ -197,6 +199,7 @@ for (let i = 0; i < addToCart.length; i++) {
 			// Тоавара нет в корзине, добавляем новый
 			let good = {
 				"id": id,
+				"name": name,
 				"count": count,
 				"cost": cost,
 				"total": total,
