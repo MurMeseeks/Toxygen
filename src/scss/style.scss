@@ -1,8 +1,10 @@
 $base-font-size: 16px;
+$form-color: #BCBCBC;
 
 @import "media";
 @import "normalize";
 @import "mixins";
+@import "carousel";
 
 body {
 	font-family: 'Helvetica', sans-serif;
@@ -10,12 +12,12 @@ body {
 }
 
 .container {
-	width: auto;
 	margin: 0 auto;
 }
 
 html,body {
 	height: 100%;
+	overflow-x: hidden;
 }
 
 .wrapper {
@@ -28,6 +30,436 @@ html,body {
 	flex: 1 0 auto;
 }
 
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+//HEADER
+
+.fa-shopping-basket {
+  color: #fff;
+  @include font(20px);
+}
+.header {
+  height: 80px;
+  background: #303030;
+}
+
+.primary-menu {
+  .container {
+	display: flex;
+	justify-content: space-between;
+  }
+  &__list {
+	list-style: none;
+	display: flex;
+	margin: 0;
+  }
+  &__item {
+	line-height: 80px;
+	&:last-child {
+	  margin-right: 0px;
+	}
+  }
+  &__link {
+	display: block;
+	height: 100%;
+	padding: 0 20px;
+	&:hover {
+	  transition: 0.5s all;
+	  background: red;
+	}
+  }
+}
+
+.left-menu {
+  &__list {
+	list-style: none;
+	margin: 0;
+  }
+  &__item {
+	line-height: 80px;
+	.fas {
+	  border: 1px solid red;
+	  height: 100%;
+	}
+  }
+}
+
+.section {
+  padding: 80px 0px;
+  // MAIN SECTION
+  &__header {
+	text-transform: uppercase;
+	text-align: center;
+  }
+  &__description {
+	text-align: center;
+	&:after {
+	  content: '';
+	  display: block;
+	  background: red;
+	  height: 3px;
+	  margin: 40px auto 40px auto;
+	  width: 10%;
+	}
+  }
+  &-main {
+	.container {
+	  display: flex;
+	}
+	background: #F5F1F0;
+	&__video {
+	  width: 600px;
+	  height: 300px;
+	}
+	&__header {
+	  @include font(60px);
+	  margin-bottom: 10px;
+	}
+	&__left {
+	  width: 50%;
+	}
+	&__description {
+	  width: 80%;
+	}
+	&__button {
+	  margin-top: 20px;
+	  background: red;
+	  @include font(15px);
+	  color: #fff;
+	  padding: 15px 15px;
+	  border: none;
+	  border-radius: 5px;
+	}
+  }
+  // PRODUCTS SECTION
+  &-products {
+	background: #F5F1F0;
+	&__categories {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-between;
+	}
+  }
+  // CONTACTS SECTION
+  &-contacts {
+	background: #F5F1F0;
+	&__description {
+	  &:after {
+		content: '';
+		display: block;
+		background: red;
+		height: 3px;
+		margin: 40px 0;
+		width: 10%;
+	  }
+	}
+	&__wrapper {
+	  display: flex;
+	  justify-content: space-between;
+	}
+	&__info {
+	  background: #2D2D2D;
+	  padding: 80px 60px;
+	  color: $form-color;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	}
+	&__form {
+	  width: 60%;
+	  form {
+		display: flex;
+		flex-direction: column;
+	  }
+	}
+  }
+}
+
+.info {
+  &__header {
+	text-transform: uppercase;
+  }
+  &__email {
+	a {
+	  color: $form-color;
+	}
+  }
+  &__phone {
+	a {
+	  color: $form-color;
+	}
+  }
+}
+
+.category {
+  margin-top: 40px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  &__name {
+	text-align: center;
+  }
+  &__img {
+	display: block;
+	width: 400px;
+	margin-left: -20%;
+  }
+}
+.reviews {
+  display: flex;
+}
+.review {
+  border: 1px solid black;
+  width: 400px;
+}
+
+.form {
+  &-input {
+	border-radius: 5px;
+	width: 40%;
+	border: none;
+	background: #E5E5E5;
+	padding: 10px 10px 10px 45px;
+	height: 30px;
+	border: 2px solid transparent;
+	&:focus {
+	  outline: solid 2px red;;
+	}
+  }
+  &-text {
+	border-radius: 5px;
+	border: none;
+	resize: none;
+	background: #E5E5E5;
+	padding: 30px 10px 10px 45px;
+	margin-bottom: 40px;
+	&:focus {
+	  outline: solid 2px red;;
+	}
+  }
+  &-submit {
+	border-radius: 5px;
+	text-align: center;
+	border: 1px solid red;
+	height: 50px;
+	padding: 10px;
+	line-height: 30px;
+	background: red;
+	color: #fff;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
 .footer {
-	flex: 0 0 auto;
+  flex: 0 0 auto;
+  color: $form-color;
+  height: 80px;
+  background: #303030;
+  .container {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+  }
+  &__socials {
+	display: flex;
+  }
+}
+
+.social {
+  background: #fff;
+  width: 40px;
+  margin-right: 20px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: $form-color;
+  }
+  &:hover {
+	border: 2px solid red;
+  }
+  &:last-child {
+	margin-right: 0;
+  }
+}
+
+.basket {
+  position: fixed;
+  padding: 0 0px;
+  background: #fff;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  width: 0px;
+  height: 100%;
+  &__list {
+	width: 100%;
+	border: 1px solid red;
+  }
+  &__head {
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid black;
+	tr {
+	  height: 50px;
+	  th {
+		border: 1px solid purple;
+	  }
+	}
+  }
+  &__body {
+	text-align: center;
+	td {
+	  padding: 10px;
+	  &:first-child {
+		width: 100px;
+	  }
+	  &:nth-child(3) {
+		width: 70px;
+	  }
+	  &:last-child {
+		width: 100px;
+	  }
+	  button {
+		padding: 5px 10px;
+	  }
+	}
+  }
+  &__item {
+	border: 1px solid red;
+  }
+  a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+  }
+  .closenav {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+}
+
+.checkout-button {
+  width: 100%;
+  background: red;
+  border: 2px solid transparent;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn {
+  display: flex;
+  width: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: none;
+  border: none;
+  &:focus {
+	outline: none;
+  }
+}
+
+.b-input {
+  border: none;
+  text-align: center;
+  &:focus {
+	outline: none;
+  }
+}
+.input {
+  &-cost {
+	width: 40px;
+  }
+  &-name {
+	width: 150px;
+  }
+  &-count {
+	width: 60px;
+  }
+  &-total {
+	width: 100px;
+  }
+}
+.flex-td {
+  width: 100%;
+  display: flex;
+}
+
+// AUTH FORM
+
+.auth {
+  &-form {
+	padding: 60px;
+	width: 60%;
+	margin: 0 auto;
+  }
+  &-header {
+	text-align: center;
+  }
+}
+.error-text {
+  display: none;
+  color: red;
+}
+.sign {
+  padding: 0 0 0 30px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #999;
+  border: 2px solid transparent;
+  background: #e5e5e5;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+  &-password {
+	&:after {
+	  content: 'HUITA';
+	  width: 100%;
+	  height: 20px;
+	  background: red;
+	  display: block;
+	}
+  }
+  &-submit {
+	background: red;
+	color: #fff;
+  }
+  &:focus {
+	outline: none;
+	border: 2px solid red;
+  }
+}
+
+.form-group.error {
+  .sign {
+	background: #fce4e4;
+	margin: 0;
+  }
+  .error-text {
+	display: block;
+	margin-bottom: 30px;
+  }
 }
