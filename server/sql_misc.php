@@ -79,7 +79,7 @@ function generic_delete($table_name, $values)
 function generic_read($table_name, $values)
 {
 	$query = "SELECT * FROM " . $table_name . " WHERE " . $values . ";";
-	print($query);
+//	print($query);
 	$res = mysqli_query(connect_sql(), $query);
 	if (!$res)
 		return false;
