@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (isset($_SESSION['logged']))
+    header('location: animals.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
