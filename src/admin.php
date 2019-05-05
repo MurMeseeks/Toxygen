@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Toxygen shop</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -30,23 +31,23 @@
                     <ul class="left-menu__list">
                         <li id="dropdown" class="dropdown ddmenu left-menu__item">
                             <i class="fas fa-user"></i>
-                            <?php
-                    session_start();
-                    if (isset($_SESSION['logged']))
-                        print
-                            '<ul id="dropdown-list" class="hide">
+							<?php
+							session_start();
+							if (isset($_SESSION['logged']))
+								print
+									'<ul id="dropdown-list" class="hide">
                         <li><a href="profile.html">My Profile</a></li>
                         <li><a href="admin.html">Admin Panel</a></li>
                         <li><a href="#">Log Out</a></li>
                     </ul>';
-                    else
-                    print
-                    '<ul id="dropdown-list" class="hide">
+							else
+								print
+									'<ul id="dropdown-list" class="hide">
                     <li><a href="auth.php">Sign In</a></li>
                     <li><a href="register.html">Register</a></li>
                 </ul>';
-                    ?>
-                    </li>
+							?>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -60,25 +61,36 @@
                     <a class="admin-links__link" href="admin-categories.php">Категории</a>
                 </div>
                 <form action="admin-users.php" method="post">
-                <table class="admin-users">
-                    <thead>
+                    <table class="admin-users">
+                        <thead>
                         <tr>
                             <th>Логин</th>
                             <th>Почта</th>
                             <th>Админ</th>
                             <th>Удалить</th>
                         </tr>
-                    </thead>
-                    <tbody>
-<!--                    todo СДЕЛАЙ НАХЕР ВСЕ-->
-                    <tr>
-                        <td><input class="admin-users__input" type="text" value="Butch"></td>
-                        <td><input class="admin-users__input" type="text" value="Butch@mail.ru"></td>
-                        <td><input type="checkbox"></td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <!--                    todo СДЕЛАЙ НАХЕР ВСЕ-->
+						<?php
+						include("../server/auth_sql.php");
+						include("../server/sql_misc.php");
+						//						include("../server/sql_manage.php");
+						$res = generic_read("users", "user_id");
+						while ($rest = mysqli_fetch_array($res, MYSQLI_ASSOC)) {
+							print
+								'<tr>
+                            <td><input class="admin-users__input" type="text" value="' . $rest['username'] . '"></td>
+                            <td><input class="admin-users__input" type="text" value="' . $rest["email"] . '"></td>
+                            <td><input ' . ($rest["isAdmin"] == true ? "checked" : " ") . ' type="checkbox" ></td>
+                            <td><input type="checkbox"></td>
+                        </tr>';
+						}
+
+
+						?>
+                        </tbody>
+                    </table>
                     <input type="submit" value="Сохранить">
                 </form>
             </div>

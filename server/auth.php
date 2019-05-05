@@ -1,6 +1,6 @@
 <?php
-include("sql_manage.php");
-include('sql_misc.php');
+include_once("sql_manage.php");
+include_once('sql_misc.php');
 session_start();
 if (isset($_SESSION['logged']) && $_SESSION['logged'] == $_POST['username']) {
 	print "Already logged";

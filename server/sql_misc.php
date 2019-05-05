@@ -1,5 +1,5 @@
 <?php
-include("auth_sql.php");
+include_once("auth_sql.php");
 function wrap_single_quotes_comma($str)
 {
 	return "'" . $str . "', ";
@@ -79,11 +79,11 @@ function generic_delete($table_name, $values)
 function generic_read($table_name, $values)
 {
 	$query = "SELECT * FROM " . $table_name . " WHERE " . $values . ";";
-//	print($query);
+	print($query);
 	$res = mysqli_query(connect_sql(), $query);
 	if (!$res)
 		return false;
-	$res = mysqli_fetch_array($res);
+//	var_dump($res);
 	return $res;
 }
 
@@ -99,3 +99,7 @@ function generic_read($table_name, $values)
 
 #$val = array("product_id"=> 1, "description" => "2345678");
 #print "delete = ".generic_delete("products", $val)."\n";
+//$res = (generic_read("users", "user_id"));
+//var_dump($res[0]);
+//var_dump($res["user_id"]);
+//var_dump(generic_read("users", "user_id"));
