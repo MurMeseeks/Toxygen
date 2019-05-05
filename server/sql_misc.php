@@ -87,6 +87,10 @@ function generic_read($table_name, $values)
 	return $res;
 }
 
+//$val = array("username" => "new", "password" => "huiasword", "isAdmin" => 0, "phone"=> 56464, "email" => "qwe@rty.ru", "address" => "addr", "birthday" => "deathday");
+//print_r($val);
+//print generic_insert("users", $val)."\n";
+
 #$val = array("price" => 1488, "description" => "eto huita", "picture_link" => "none", "weight" => 7, "product_name" => "popug3", "color" => "123", "width" => "1337", "height" => "123", "quantity" => "13");
 #print generic_insert("products", $val)."\n";
 
