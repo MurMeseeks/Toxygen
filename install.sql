@@ -1,4 +1,3 @@
-use z2Ymbo1JnT;
 CREATE TABLE `users` (
                          `user_id` INT NOT NULL AUTO_INCREMENT,
                          `username` VARCHAR(30) NOT NULL UNIQUE,
@@ -13,16 +12,16 @@ CREATE TABLE `users` (
 
 CREATE TABLE `orders` (
                           `order_id` INT NOT NULL AUTO_INCREMENT,
-                          `product_id` INT NOT NULL ,
-                          `qty` INT NOT NULL,
+                          `cart_id` INT NOT NULL UNIQUE,
                           `user_id` INT NOT NULL,
                           `order_time` TIMESTAMP NOT NULL,
-                          PRIMARY KEY (`order_id`,`product_id`)
+                          `summ` FLOAT NOT NULL,
+                          PRIMARY KEY (`order_id`)
 );
 
 CREATE TABLE `products` (
                             `product_id` INT NOT NULL AUTO_INCREMENT,
-                            `product_name` TEXT NOT NULL,
+                            `product_name` varchar(255) NOT NULL UNIQUE,
                             `price` FLOAT NOT NULL,
                             `description` TEXT NOT NULL,
                             `picture_link` TEXT NOT NULL,
@@ -49,7 +48,15 @@ CREATE TABLE `reviews` (
                            PRIMARY KEY (`review_id`)
 );
 
-ALTER TABLE `orders` ADD CONSTRAINT `orders_fk0` FOREIGN KEY (`product_id`) REFERENCES `products`(`product_id`);
+CREATE TABLE `cart` (
+                        `cart_id` INT NOT NULL AUTO_INCREMENT,
+                        `product_id` INT NOT NULL,
+                        `qty` INT NOT NULL,
+                        `order_id` INT NOT NULL,
+                        PRIMARY KEY (`cart_id`)
+);
+
+ALTER TABLE `orders` ADD CONSTRAINT `orders_fk0` FOREIGN KEY (`cart_id`) REFERENCES `cart`(`cart_id`);
 
 ALTER TABLE `orders` ADD CONSTRAINT `orders_fk1` FOREIGN KEY (`user_id`) REFERENCES `users`(`user_id`);
 
