@@ -39,7 +39,7 @@ if (isset($_SESSION['logged']))
 		  <div class="container">
 			<div class="auth-form">
 			  <h2 class="auth-header">Авторизация</h2>
-			  <form action="http://localhost:8080/Toxygen/server/auth.php" method="POST">
+			  <form action="../server/auth.php" method="POST">
 				<input placeholder="Login" class="sign sign-login" name="username" type="text" value=""/>
 				<input placeholder="Password" class="sign sign-password" name="password" type="password" value=""/>
 				<input class="sign sign-submit" name="submit" type="submit" value="Войти"/>
@@ -73,6 +73,6 @@ if (isset($_SESSION['logged']))
 	  </footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="js/register.js"></script>
+<!--	<script src="js/register.js"></script>-->
   </body>
 </html>

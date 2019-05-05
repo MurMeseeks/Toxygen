@@ -1,6 +1,7 @@
 <?php
 
-include("sql_misc.php");
+include_once("sql_misc.php");
+session_start();
 $query_str = "";
 
 if (!isset($_POST))
@@ -25,7 +26,7 @@ else
 		$warning = $warning."Username too long\n ";
 		$checker += 1;
 	}
-	if (strlen($_POST["email"]) > 15)
+	if (strlen($_POST["phone"]) > 15)
 	{
 		$warning = $warning."Phone number is wrong format\n ";
 		$checker += 1;
@@ -52,9 +53,9 @@ else
 	}
 	$_POST["password"] = hash("whirlpool", $_POST["password"]);
 	$_POST["isAdmin"] = 0;
-	print_r($_POST);
+    $_SESSION['logged'] = $_POST['username'];
+    header("Location: ../src/index.php");
 	print("result = '".generic_insert("users", $_POST)."';");
 
-	//header("Location: http://../src/index.html");
 }
 
