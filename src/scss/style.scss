@@ -75,18 +75,39 @@ a {
 
 .left-menu {
   &__list {
+	display: flex;
+	align-items: center;
+	width: 100px;
 	list-style: none;
 	margin: 0;
   }
   &__item {
-	line-height: 80px;
+	margin-right: 50px;
+	&:last-child {
+	  margin-right: 0;
+	}
+	span {
+	  color: #fff;
+	  @include font(20px);
+	}
 	.fas {
 	  border: 2px solid #fff;
-	  padding: 10px;
+	  padding: 20px;
 	  border-radius: 50%;
-	  height: 100%;
 	  font-size: 20px;
 	  color: #fff;
+	  width: 20px;
+	  height: 20px;
+	  &.fa-shopping-basket {
+	  }
+	}
+	&_login {
+	  a {
+		margin-right: 40px;
+		&:last-child {
+		  margin-right: 0;
+		}
+	  }
 	}
   }
 }
@@ -469,47 +490,63 @@ a {
 }
 
 //dropdown.menu
-#dropdown { 
+.dropdown {
   display: block;
-  width: 266px;
   margin: 0 auto;
   position: relative;
   cursor: pointer;
+  width: 166px;
+  text-align: center;
   font-size: 1.55em;
   color: #656565;
   font-weight: normal;
   transition: all 0.15s linear;
 }
-#dropdown:hover { color: #898989; }
-
-#dropdown.open {
-  background: #5a90e0;
-  color: #fff;
-  border-left-color: #6c6d70;
+.dropdown:hover { color: #898989;
+				  cursor: pointer;
 }
 
-#dropdown ul { 
+.dropdown.open {
+  i {
+	color: #fff;
+	background: red;
+  }
+}
+
+.dropdown ul {
   position: absolute;
+  padding: 0;
+  width: 150px;
   top: 100%;
-  left: -4px; /* move content -4px because of container left border */
-  width: 266px;
-  padding: 5px 0px;
-  display: none;
-  border-left: 4px solid #8e9196;
+  text-align: center;
+  display: block;
+  list-style: none;
+  border: 1px solid #e86f6f;
+  @include font(16px);
   background: #fff;
-  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  &.hide {
+	display: none;
+  }
+  li {
+	height: 50px;
+	line-height: 50px;
+	border-left: 4px solid transparent;
+  }
+  li:hover {
+	border-left: 4px solid red;
+  }
 }
-#dropdown ul li { font-size: 0.9em; }
+.dropdown ul li {
+  font-size: 0.9em;
+}
 
-#dropdown ul li a { 
+.dropdown ul li a {
+  padding: 0 10px;
   text-decoration: none;
   display: block;
-  color: #447dd3;
-  padding: 7px 15px;
+  color: red;
 }
-#dropdown ul li a:hover {
-  color: #6fa0e9;
-  background: #e7f0f7;
+.dropdown ul li a:hover {
+  color: #e86f6f;
+  background: #f4e6e6;
 }
