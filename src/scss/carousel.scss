@@ -1,0 +1,140 @@
+.fa-star {
+  color: orange;
+}
+.review-wrappper {
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto;
+  button {
+	position: absolute;
+	top: 80px;
+	width: 40px;
+	height: 40px;
+	background-size: 30%;
+	border: 2px solid red;
+	border-radius: 50px;
+	cursor: pointer;
+	overflow: hidden;
+	transition: all 0.2s ease-in-out;
+	z-index: 3;
+	&:hover {
+	  background: red;
+	  transition: 0.5s all;
+	  i {
+		color: #fff;
+	  }
+	}
+
+	&:active,
+	&:focus {
+	  outline: none; }
+
+	&.arrow-left {
+	  i {transform: rotate(180deg);}
+	  left: -20px; }
+
+	&.arrow-right {
+	  right: -40px;
+	  }
+
+	@media screen and (min-width: 53.125em) {
+	  top: 50%;
+	  transform: translate(-50%);
+
+	  &.arrow-left {
+		left: 0; } } }
+
+
+  .review-box {
+	position: relative;
+	width: 100%;
+	border-radius: 4px;
+	background-color: white;
+	box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+	overflow: hidden;
+
+	.review-logo-setion {
+	  position: relative;
+	  height: 200px;
+	  background-color: red;
+
+	  @media screen and (min-width: 53.125em) {
+		position: absolute;
+		top: 0;
+		left: -200px;
+		bottom: 0;
+		right: 65%;
+		height: 100%;
+		transform: skewX(-10deg); }
+
+	  p {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: 24px;
+		font-weight: 800;
+		color: white;
+		transform: translate(-50%, -50%);
+
+		@media screen and (min-width: 53.125em) {
+		  left: 310px;
+		  transform: skewX(10deg); } } }
+
+	.review-stories {
+	  padding-left: 20px;
+
+	  @media screen and (min-width: 53.125em) {
+		padding-left: 40%; }
+
+	  ul {
+		list-style: none;
+		display: flex;
+		width: calc(100% * 5);
+		padding: 20px 30px;
+		transition: all 0.4s ease-in-out;
+
+		@media screen and (min-width: 53.125em) {
+		  padding: 40px 30px; }
+
+		li {
+		  width: calc(100% / 5);
+		  padding-right: 60px;
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  opacity: 0;
+		  color: #777;
+		  transition: all 0.4s ease-in-out;
+
+		  &.active {
+			opacity: 1; }
+
+		  .star-ratings {
+			margin-bottom: 10px;
+
+			span {
+			  unicode-bidi: bidi-override;
+			  direction: rtl;
+			  font-size: 20px;
+			  color: green; } }
+
+		  .review-message {
+			font: italic 400 20px/1.6 'Roboto';
+			position: relative;
+
+			&::before {
+			  content: open-quote;
+			  position: absolute;
+			  left: -11px; }
+
+			&::after {
+			  content: close-quote;
+			  position: absolute; } }
+
+		  .review-name {
+			font: 700 18px/1.6 'Roboto';
+			text-transform: uppercase;
+			margin-bottom: 3px; }
+
+		  .review-role {
+			font: 400 16px 'Roboto'; } } } } } }
