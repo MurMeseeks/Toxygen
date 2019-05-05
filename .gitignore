@@ -1,1 +1,4 @@
 node_modules/
+.idea
+server/auth.php
+auth.php
