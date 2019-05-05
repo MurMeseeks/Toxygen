@@ -1,5 +1,4 @@
 updateBasket();
-updateBasketIcon();
 
 let products = document.getElementsByClassName("product");
 let addToCart = document.getElementsByClassName("add_to_cart");
@@ -153,12 +152,6 @@ function addToLocalStorage(id, count, cost) {
 	}
 }
 
-function updateBasketIcon() {
-	let basket = document.getElementById("basket");
-	let cart = JSON.parse(window.localStorage.getItem("cart"));
-	basket.innerText = cart.length;
-}
-
 for (let i = 0; i < addToCart.length; i++) {
 	addToCart[i].addEventListener("click", function() {
 		let amount = addToCart[i].parentNode.parentNode.parentNode.dataset.amount; // Получаем количество оставшихся товаров
@@ -181,7 +174,6 @@ for (let i = 0; i < addToCart.length; i++) {
 			amount -= 1;
 			cart.push(good);
 			window.localStorage.setItem("cart", JSON.stringify(cart));
-			updateBasketIcon();
 			updateBasket();
 		}
 		// Если (КОРЗИНА) уже существует, пихаем в нее
@@ -214,7 +206,6 @@ for (let i = 0; i < addToCart.length; i++) {
 			cart.push(good);
 			window.localStorage.setItem("cart", JSON.stringify(cart));
 			updateBasket();
-			updateBasketIcon();
 		}
 	})
 }

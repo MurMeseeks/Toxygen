@@ -15,7 +15,7 @@
 			<div class="container">
 			  <ul class="primary-menu__list">
 				<li class="primary-menu__item">
-				  <a class="primary-menu__link" href="#">HOME</a>
+				  <a class="primary-menu__link" href="index.php">HOME</a>
 				</li>
 				<li class="primary-menu__item">
 				  <a class="primary-menu__link" href="animals.php">PRODUCTS</a>
@@ -29,7 +29,27 @@
 			  </ul>
 			  <ul class="left-menu__list">
 				<li onclick="openNav()" class="left-menu__item">
-				  <i id="basket" class="fas fa-shopping-basket"></i>
+				  <i class="fas fa-shopping-basket"></i>
+				  <span id="basket"></span>
+				</li>
+				<li id="dropdown" class="dropdown ddmenu left-menu__item">
+				  <i class="fas fa-user"></i>
+					<?php
+                    session_start();
+                    if (isset($_SESSION['logged']))
+                        print
+                            '<ul id="dropdown-list" class="hide">
+				  <li><a href="profile.html">My Profile</a></li>
+				  <li><a href="admin.html">Admin Panel</a></li>
+				  <li><a href="#">Log Out</a></li>
+			  </ul>';
+				else
+				print
+				'<ul id="dropdown-list" class="hide">
+				<li><a href="auth.html">Sign In</a></li>
+				<li><a href="register.html">Register</a></li>
+			</ul>';
+				?>
 				</li>
 			  </ul>
 			</div>
@@ -38,21 +58,21 @@
 		<div id="basket-slide" class="basket">
 		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		  <h3>Корзина:</h3>
-		  <form action="../server/pushcart.php" action="POST">
-		  <table id="bk-list" class="basket__list">
-			<thead id="bk-head" class="basket__head">
-			  <tr>
-				<th>Товар</th>
-				<th>Цена</th>
-				<th>Кол-во</th>
-				<th>Сумма</th>
-			  </tr>
-			</thead>
-			<tbody id="bk-body" class="basket__body">
-			</tbody>
-		  </table>
-		  <h3>ИТОГО: <span id="total">0 $</span></h3>
-		  <button type="submit" class="checkout-button">Оформить заказ</button>
+		  <form action="../server/pushcart.php" method="POST">
+			<table id="bk-list" class="basket__list">
+			  <thead id="bk-head" class="basket__head">
+				<tr>
+				  <th>Товар</th>
+				  <th>Цена</th>
+				  <th>Кол-во</th>
+				  <th>Сумма</th>
+				</tr>
+			  </thead>
+			  <tbody id="bk-body" class="basket__body">
+			  </tbody>
+			</table>
+			<h3>ИТОГО: <span id="total">0 $</span></h3>
+			<button type="submit" class="checkout-button">Оформить заказ</button>
 		  </form>
 		</div>
 		<main class="main">
@@ -61,7 +81,7 @@
 			  <div class="make3D">
 				<div class="product-front">
 				  <div class="shadow"></div>
-				  <img src="./img/birds/blue_macaw/bird_blue_4.jpg" height="265px" width="100%" alt="" />
+				  <img src="./img/birds/blue_macaw/bird_blue_4.jpg" height="265px" alt="" />
 				  <div class="image_overlay"></div>
 				  <div class="add_to_cart">Add to cart</div>
 				  <div class="stats">
@@ -98,7 +118,7 @@
 			  <a target="_blank" href="https://vk.com"><i class="fab fa-vk"></i></a>
 			</div>
 			<div class="social">
-			  <a target="_blank" href="https://facebook.com" <i class="fab fa-facebook-f"></i></a>
+			  <a target="_blank" href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
 				 </div>
 <div class="social">
   <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i>
@@ -112,7 +132,7 @@
 </div>
 </footer>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="js/basket.js"></script>
+<script src="js/dropdown.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@
 				  <a class="primary-menu__link" href="#">HOME</a>
 				</li>
 				<li class="primary-menu__item">
-				  <a class="primary-menu__link" href="animals.html">PRODUCTS</a>
+				  <a class="primary-menu__link" href="animals.php">PRODUCTS</a>
 				</li>
 				<li class="primary-menu__item">
 				  <a class="primary-menu__link" href="#">ABOUT US</a>
@@ -28,20 +28,25 @@
 				</li>
 			  </ul>
 			  <ul class="left-menu__list">
-				<li class="left-menu__item">
-				  <a href="auth.html">Логин</a>
-				  <a href="register.html">Регистрация</a>
-				</li>
-			  </ul>
-			  <ul class="left-menu__list">
-				<li id="dropdown" class="ddmenu left-menu__item">
+				<li id="dropdown" class="dropdown ddmenu left-menu__item">
 				  <i class="fas fa-user"></i>
-				  <ul>
-					<li><a href="#">My Profile</a></li>
-					<li><a href="#">Admin Panel</a></li>
-					<li><a href="#">Log Out</a></li>
-				  </ul>
-				</li>
+                    <?php
+                    session_start();
+                    if (isset($_SESSION['logged']))
+                        print
+                            '<ul id="dropdown-list" class="hide">
+                                <li><a href="profile.html">My Profile</a></li>
+                                <li><a href="admin.html">Admin Panel</a></li>
+                                <li><a href="#">Log Out</a></li>
+				            </ul>';
+                    else
+                        print
+                            '<ul id="dropdown-list" class="hide">
+                                <li><a href="auth.html">Sign In</a></li>
+                                <li><a href="register.html">Register</a></li>
+                              </ul>';
+                    ?>
+                </li>
 			  </ul>
 			</div>
 		  </nav>
@@ -182,7 +187,7 @@
 				</div>
 			  </div>
 
-		  </div>		  </div>
+			</div>		  </div>
 		</section>
 		<section class="section section-contacts">
 		  <div class="container">
@@ -230,20 +235,20 @@
 			</div>
 			<div class="social">
 			  <a target="_blank" href="https://facebook.com" <i class="fab fa-facebook-f"></i></a>
-				 </div>
-<div class="social">
-  <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i>
-  </a>
-</div>
-<div class="social">
-  <a target="_blank" href="https://linkedin.com"><i class="fab fa-linkedin-in"></i>
-  </a>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<script src="js/main.js"></script>
-<script src="js/dropdown.js"></script>
-</body>
+			</div>
+			<div class="social">
+			  <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i>
+			  </a>
+			</div>
+			<div class="social">
+			  <a target="_blank" href="https://linkedin.com"><i class="fab fa-linkedin-in"></i>
+			  </a>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+	</div>
+	<script src="js/main.js"></script>
+	<script src="js/dropdown.js"></script>
+  </body>
 </html>

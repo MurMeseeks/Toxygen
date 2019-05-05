@@ -131,7 +131,10 @@ html,body{height:100%;overflow-x:hidden}.wrapper{display:-webkit-box;display:-ms
 .primary-menu__list{list-style:none;display:-webkit-box;display:-ms-flexbox;display:flex;margin:0}
 .primary-menu__item{line-height:80px}.primary-menu__item:last-child{margin-right:0}
 .primary-menu__link{display:block;height:100%;padding:0 20px}.primary-menu__link:hover{-webkit-transition:.5s all;transition:.5s all;background:red}
-.left-menu__list{list-style:none;margin:0}.left-menu__item{line-height:80px}.left-menu__item .fas{border:2px solid #fff;padding:10px;border-radius:50%;height:100%;font-size:20px;color:#fff}
+.left-menu__list{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100px;list-style:none;margin:0}
+.left-menu__item{margin-right:50px}.left-menu__item:last-child{margin-right:0}.left-menu__item span{color:#fff;font-size:1.25rem}
+.left-menu__item .fas{border:2px solid #fff;padding:20px;border-radius:50%;font-size:20px;color:#fff;width:20px;height:20px}
+.left-menu__item_login a{margin-right:40px}.left-menu__item_login a:last-child{margin-right:0}
 .section{padding:80px 0}.section__header{text-transform:uppercase;text-align:center}
 .section__description{text-align:center}.section__description:after{content:'';display:block;background:red;height:3px;margin:40px auto 40px auto;width:10%}
 .section-main{background:#f5f1f0}.section-main .container{display:-webkit-box;display:-ms-flexbox;display:flex}
@@ -169,8 +172,9 @@ html,body{height:100%;overflow-x:hidden}.wrapper{display:-webkit-box;display:-ms
 .sign-password:after{content:'HUITA';width:100%;height:20px;background:red;display:block}
 .sign-submit{background:red;color:#fff}.sign:focus{outline:0;border:2px solid red}
 .form-group.error .sign{background:#fce4e4;margin:0}.form-group.error .error-text{display:block;margin-bottom:30px}
-#dropdown{display:block;width:266px;margin:0 auto;position:relative;cursor:pointer;font-size:1.55em;color:#656565;font-weight:normal;-webkit-transition:all .15s linear;transition:all .15s linear}
-#dropdown:hover{color:#898989}#dropdown.open{background:#5a90e0;color:#fff;border-left-color:#6c6d70}
-#dropdown ul{position:absolute;top:100%;left:-4px;width:266px;padding:5px 0;display:none;border-left:4px solid #8e9196;background:#fff;-webkit-box-shadow:1px 1px 2px rgba(0,0,0,0.3);box-shadow:1px 1px 2px rgba(0,0,0,0.3)}
-#dropdown ul li{font-size:.9em}#dropdown ul li a{text-decoration:none;display:block;color:#447dd3;padding:7px 15px}
-#dropdown ul li a:hover{color:#6fa0e9;background:#e7f0f7}
+.dropdown{display:block;margin:0 auto;position:relative;cursor:pointer;width:166px;text-align:center;font-size:1.55em;color:#656565;font-weight:normal;-webkit-transition:all .15s linear;transition:all .15s linear}
+.dropdown:hover{color:#898989;cursor:pointer}.dropdown.open i{color:#fff;background:red}
+.dropdown ul{position:absolute;padding:0;width:150px;top:100%;text-align:center;display:block;list-style:none;border:1px solid #e86f6f;font-size:1rem;background:#fff}
+.dropdown ul.hide{display:none}.dropdown ul li{height:50px;line-height:50px;border-left:4px solid transparent}
+.dropdown ul li:hover{border-left:4px solid red}.dropdown ul li{font-size:.9em}.dropdown ul li a{padding:0 10px;text-decoration:none;display:block;color:red}
+.dropdown ul li a:hover{color:#e86f6f;background:#f4e6e6}
