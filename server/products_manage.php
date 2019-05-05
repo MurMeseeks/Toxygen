@@ -1,6 +1,6 @@
 <?php
 include("sql_misc.php");
-include("auth.php");
+include("auth_sql.php");
 function add_product($product_info)
 {
 	

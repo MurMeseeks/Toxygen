@@ -1,5 +1,5 @@
 <?php
-include("auth.php");
+include("auth_sql.php");
 function wrap_single_quotes_comma($str)
 {
 	return "'" . $str . "', ";
